@@ -1,0 +1,82 @@
+app:
+  datasource:
+    db1:
+      #url: jdbc:h2:file:./db/db1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+      url: jdbc:h2:mem:db1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      tomcat:
+        testWhileIdle: true
+        validationQuery: SELECT 1
+        timeBetweenEvictionRunsMillis: 15000
+    db2:
+      url: jdbc:h2:mem:db2;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      tomcat:
+        testWhileIdle: true
+        validationQuery: SELECT 1
+        timeBetweenEvictionRunsMillis: 15000
+    mongo1:
+      host: localhost
+      port: 27018
+      database: mongo1
+    mongo2:
+      host: localhost
+      port: 27019
+      database: mongo2
+  jpa:
+    db1:
+      properties:
+        hibernate:
+          format_sql: true
+          show_sql: true
+          hbm2ddl:
+            auto: update
+    db2:
+      properties:
+        hibernate:
+          format_sql: true
+          show_sql: true
+          hbm2ddl:
+            auto: update
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+logging:
+  level:
+    ROOT: TRACE
+    javax.management: INFO
+    org.apache: INFO
+    org.flywaydb: INFO
+    org.hibernate: INFO
+    #org.hibernate.SQL: DEBUG
+    #org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    #org.hibernate.type: TRACE
+    org.jboss.logging: INFO
+    org.springframework.aop: INFO
+    org.springframework.beans: INFO
+    org.springframework.boot: INFO
+    org.springframework.context: INFO
+    org.springframework.core: INFO
+    org.springframework.data: INFO
+    org.springframework.jdbc: INFO
+    org.springframework.jmx: INFO
+    org.springframework.orm: INFO
+    org.springframework.scheduling: INFO
+    org.springframework.test: INFO
+    org.springframework.transaction: INFO
+    org.springframework.ui: INFO
+    org.springframework.util: INFO
+    org.springframework.web: INFO
+    sun.rmi: INFO
+  pattern:
+    # enable following pattern to get full component names
+    #console: "%d{HH:mm:ss.SSS} %5p [%t] %c - %m%n%wEx"
+  # see http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-logging-file-output
+  file:
+  path:

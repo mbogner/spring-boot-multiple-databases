@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  mongo1:
+    build: "images/mongo"
+    image: "bootdb_mongo:1.0.0"
+    ports:
+      - 127.0.0.1:27018:27017
+  mongo2:
+    build: "images/mongo"
+    image: "bootdb_mongo:1.0.0"
+    ports:
+      - 127.0.0.1:27019:27017
